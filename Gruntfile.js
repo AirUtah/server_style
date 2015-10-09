@@ -1,85 +1,59 @@
-/*global module:false*/
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  // Project configuration.
+  // Force use of Unix newlines
+  //grunt.util.linefeed = '\n';
+
   grunt.initConfig({
-    // Metadata.
+
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-    // Task configuration.
-    concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
-      dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'dist/<%= pkg.name %>.js'
-      }
-    },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
-      }
-    },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        globals: {
-          jQuery: true
+
+    less: {
+      main: {
+        options: {
+          strictMath: false,
+          sourceMap: true,
+          outputSourceFiles: false,
+          sourceMapURL: 'app.css.map',
+          sourceMapFilename: 'app/assets/css/app.css.map'
+        },
+        files: {
+          'app/assets/css/app.css': 'app/assets/less/app.less'
         }
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
       }
-    },
-    qunit: {
-      files: ['test/**/*.html']
     },
     watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
+      options: {
+        liveReload: true
       },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
+      styles: {
+        // Which files to watch (all .less files)
+        files: ['styles/**/*.less', 'app/assets/less/**/*.less'],
+        tasks: ['less'],
+        options: {
+          nospawn: true
+        }
+      }
+    },
+
+    cssmin: {
+      options: {
+        //shorthandCompacting: false,
+        //roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'app/assets/css/app.css': ['app/assets/css/app.min.css']
+        }
       }
     }
   });
 
-  // These plugins provide necessary tasks.
-  //grunt.loadNpmTasks('grunt-contrib-concat');
-  //grunt.loadNpmTasks('grunt-contrib-uglify');
-  //grunt.loadNpmTasks('grunt-contrib-qunit');
-  //grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-typescript');
-  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  //grunt.loadNpmTasks('grunt-contrib-copy');
+  //grunt.loadNpmTasks('grunt-contrib-clean');
 
-  // Default task.
-  //grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-  grunt.registerTask('default',['less','typescript']);
+  // Default task(s).
+  grunt.registerTask('default', ['less']);
 };

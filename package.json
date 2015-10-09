@@ -1,32 +1,31 @@
 {
-  "engines": {
-    "node": ">= 0.10.0"
-  },
+  "name": "server_style",
+  "version": "1.0.0",
+  "description": "AirU web styles",
+  "main": "index.js",
   "scripts": {
-    "start": "npm install && grunt && node server.js"
+    "prestart": "npm install && grunt",
+    "start": "http-server -a localhost -p 8080 -c-1"
   },
-  "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-qunit": "~0.5.2",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-uglify": "~0.5.0"
+  "repository": {
+    "type": "git",
+    "url": "ssh://Jmoore1127@review.gerrithub.io:29418/AirUtah/server_style"
   },
+  "keywords": [
+    "AirU",
+    "Styles",
+    "Web"
+  ],
+  "author": "Zach Lobator, Jared Moore, Jared Potter, Taylor Wilson",
+  "license": "MIT",
   "dependencies": {
-    "angular": "^1.4.7",
-    "angular-resource": "^1.4.7",
-    "bootstrap": "^3.3.5",
+    "bower": "^1.5.3",
+    "express": "^4.13.3",
     "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-less": "^1.0.1",
-    "grunt-contrib-qunit": "^0.7.0",
-    "grunt-contrib-uglify": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-typescript": "^0.7.0",
-    "less": "^2.5.3",
-    "require": "^2.4.20",
-    "typescript": "^1.6.2"
+    "http-server": "^0.8.5"
   }
 }
