@@ -1,0 +1,80 @@
+@import "../../../styles/styles.less";
+@import "variables.less";
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+.container-fluid {
+  height: 100%;
+}
+.row {
+  height: 100%;
+}
+#page-wrapper {
+  min-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  background-color: @nav-bg-color;
+  height: 100%;
+  overflow-y: scroll;
+
+  li {
+    line-height: 30px;
+    text-indent: 5px;
+
+    &.sidebar-title {
+      height: 75px;
+      line-height: 1.8em;
+      font-size: 1.8em;
+      a {
+        color: @nav-text-color;
+
+        &:hover {
+          color: @nav-text-color;
+          background: none;
+        }
+      }
+    }
+
+    a {
+      color: @nav-text-color;
+      display: block;
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 5px 15px;
+
+      &:hover {
+        color: #fff;
+        background: @nav-hover-color;
+        text-decoration: none;
+      }
+      &:active, &:focus {
+        text-decoration: none;
+        background-color: @nav-bg-color;
+      }
+    }
+
+  }
+}
+.content-area {
+  height: 100%;
+  padding: 20px;
+}
+.content-header {
+  font-size: 2em;
+  margin: -10px;
+}
+.content-wrapper {
+  height: 100%;
+  padding: 5px;
+}
+.styleguide-content {
+
+}
+
+

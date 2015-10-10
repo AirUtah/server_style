@@ -3,34 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>AirU Web Styles</title>
-    <link rel="stylesheet/css" href="bower_components/bootstrap/dist/css/bootstrap.css.min"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet/css" href="compiled.css"/>
+    <link rel="stylesheet" href="app.min.css"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-</head>
-<body ng-app="styleguide">
-    <header class="styleguide-header">
-        <a href="./#/"><h1>Style Guide</h1></a>
-    </header>
-
-    <section>
-        <ul class="nav nav-pills nav-stacked">
-            <li class="item1"><a href="./#/app/views/Item1.html">Item1</a></li>
-            <li class="item2"><a href="./#/app/views/Item2.html">Item2</a></li>
-        </ul>
-    </section>
-
-    <ng-view class="styleguide-content"></ng-view>
-
-
-
-    <!-- LIBS -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
 
-    <!-- Controllers -->
+</head>
+<body ng-app="styleguide" ng-controller="navController as ctrl">
+<div class="container-fluid">
+
+    <div class="row">
+        <!--<div class="sidebar-wrapper col-lg-2">-->
+        <nav class="sidebar col-lg-2 ng-cloak" ng-cloak>
+            <ul class="nav nav-pills nav-stacked ">
+                <li class="sidebar-title"><a href="#/">Style Guide</a></li>
+                <li><a href="#/Item1">Item1</a></li>
+                <li><a href="#/Item2">Item2</a></li>
+                <li><a href="#/Item3">Item3</a></li>
+                <li><a href="#/Item4">Item4</a></li>
+                <li><a href="#/Item5">Item5</a></li>
+                <li><a href="#/Item6">Item6</a></li>
+                <li><a href="#/Item7">Item7</a></li>
+                <li><a href="#/Item8">Item8</a></li>
+                <li><a href="#/Item9">Item9</a></li>
+                <li><a href="#/Item10">Item10</a></li>
+                <li><a href="#/Item11">Item11</a></li>
+                <li><a href="#/Item12">Item12</a></li>
+                <li><a href="#/Item13">Item13</a></li>
+                <li><a href="#/Item14">Item14</a></li>
+                <li><a href="#/Item15">Item15</a></li>
+                <li><a href="#/Item16">Item16</a></li>
+                <li><a href="#/Item17">Item17</a></li>
+                <li><a href="#/Item18">Item18</a></li>
+                <li><a href="#/Item19">Item19</a></li>
+                <li><a href="#/Item20">Item20</a></li>
+                <li><a href="#/Item21">Item21</a></li>
+                <li><a href="#/Item22">Item22</a></li>
+                <li><a href="#/Item23">Item23</a></li>
+                <li><a href="#/Item24">Item24</a></li>
+                <li><a href="#/Item25">Item25</a></li>
+                <li><a href="#/Item26">Item26</a></li>
+                <li><a href="#/Item27">Item27</a></li>
+                <li><a href="#/Item28">Item28</a></li>
+                <li><a href="#/Item29">Item29</a></li>
+                <li><a href="#/Item30">Item30</a></li>
+                <li><a href="#/Item31">Item31</a></li>
+                <li><a href="#/Item32">Item32</a></li>
+                <li><a href="#/Item33">Item33</a></li>
+                <li><a href="#/Item34">Item34</a></li>
+                <li><a href="#/Item35">Item35</a></li>
+                <li><a href="#/Item36">Item36</a></li>
+                <li><a href="#/Item37">Item37</a></li>
+                <li><a href="#/Item38">Item38</a></li>
+                <li><a href="#/Item39">Item39</a></li>
+                <li><a href="#/Item40">Item40</a></li>
+                <li><a href="#/Item41">Item41</a></li>
+                <li><a href="#/Item42">Item42</a></li>
+                <li><a href="#/Item43">Item43</a></li>
+                <li><a href="#/Item44">Item44</a></li>
+                <li><a href="#/Item45">Item45</a></li>
+                <li><a href="#/Item46">Item46</a></li>
+                <li><a href="#/Item47">Item47</a></li>
+                <li><a href="#/Item48">Item48</a></li>
+                <li><a href="#/Item49">Item49</a></li>
+                <li><a href="#/Item50">Item50</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="content-area col-lg-10 ng-cloak" ng-cloak>
+            <div class="content-wrapper">
+                <div class="content-header">{{ctrl.component()}}</div>
+                <hr />
+                <div ng-view class="styleguide-content"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- LIBS -->
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+
+<!-- Controllers -->
+<script src="app/js/app.js"></script>
 </body>
 </html>
